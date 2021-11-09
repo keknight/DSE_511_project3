@@ -11,7 +11,7 @@ Algorithms:
 Naive bayes, baseline model (Christoph)
 SVM (Christoph)
 Decision tree (Katie)
-KNN (Katie)
+XGBoost (Katie)
 
 Modeling and evaluation pipeline:
 Train with GridSearchCV (cross validation + hyperparameter tuning) -> Use best model to predict test data -> Report evaluation metrics (F1, Precision, Recall) + plots 
