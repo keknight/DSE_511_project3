@@ -1,0 +1,8 @@
+os
+zipfile
+numpy
+pandas
+matplotlib
+scikit-learn
+seaborn
+kaggle
