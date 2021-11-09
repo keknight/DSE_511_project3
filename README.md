@@ -4,7 +4,7 @@ Git repo for DSE 511 Project 3
 Tasks: 
 Proposal (Christoph)
 Data importing and pre-processing (Anna)
-Data analysis + visualization (tentative) (Anna)
+Data analysis + visualization (Anna)
 Data modeling and evaluation with/without dimensionality reduction (Katie, Christoph)
 
 Algorithms: 
