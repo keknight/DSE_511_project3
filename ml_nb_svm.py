@@ -9,8 +9,7 @@ principal component analysis.
 """
 
 import numpy as np
-import pandas as pd
-import random
+# Type hinting
 from typing import List
 from typing import Dict
 from typing import Tuple
@@ -19,8 +18,6 @@ from typing import TypeVar
 PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
 PandasSeries = TypeVar('pandas.core.series.Series')
 SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
-
-# Libraries
 
 # Hypertuning GridSearchCV
 from sklearn.model_selection import StratifiedKFold
@@ -36,7 +33,7 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 
-
+# Set global variable seed for reproducibility
 seed = 0
 
 
