@@ -39,6 +39,39 @@ from sklearn.metrics import f1_score
 
 seed = 0
 
+
+def init_classifier(clf: str) -> Tuple[SklearnClassifier, Dict[str, int, float]]:
+    """
+    Function that returns the classifier and parameter grid for hyper-parameter tuning.
+
+    Parameters
+    ----------
+    clf: str
+        string variable indicating which SKlearnClassifier should be initialized with hyperparameter space for grid
+        search
+
+    Returns
+    -------
+    classifier: SklearnClassifier
+        Sklearn classifier object
+    param_grid: Dict[str, int, float]
+        Dictionary containing hyper-parameters that should be investigated during gridsearch cv
+    """
+
+    if clf == 'nb':
+        classifier = GaussianNB(random_state=seed)
+        param_grid = {'var_smoothing': np.logspace(0, -9, num=100)}
+
+    elif clf == 'svc':
+        classifier = SVC(random_state=seed)
+        param_grid = [
+          {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
+          {'C': [1, 10, 100, 1000], 'gamma': [0.1, 0.01, 0.001, 0.0001], 'kernel': ['rbf']},
+         ]
+
+    return classifier, param_grid
+
+
 def ml_classification(
         X_train: PandasDataFrame,
         X_test: PandasDataFrame,
@@ -73,6 +106,7 @@ def ml_classification(
     result_classifier: List
         A list containing all the performance metrics of the model.
     """
+    cv_m = StratifiedKFold(cv_m)
     grid_clf = GridSearchCV(classifier, param_grid, cv=cv_m, scoring='f1', n_jobs=-1)
     grid_clf.fit(X_train, y_train)
 
@@ -99,7 +133,7 @@ def ml_classification(
     fp = conf_matrix[0][1]
     fn = conf_matrix[1][0]
     tn = conf_matrix[1][1]
-    result = [clf_best, precision, recall, f1, tp, fp, fn, tn]
+    result = [clf_best, f1, precision, recall, tp, fp, fn, tn]
 
     return result
 
