@@ -1,39 +1,31 @@
 # DSE 511 - Introduction to Data Science and Computing I
 # Final Project
 
-Description:
-This github repository is for the binary classification of the impact risk of near-earth objects (NEOs) for planet earth and the earth's population. The main research question is whether standard "off-the-shelf" algorithms can produce outstanding classification performance.
+Project description:
+This github repository is for the binary classification of the impact risk of near-earth objects (NEOs) for planet earth and the earth's population. The main research question is whether standard "off-the-shelf" algorithms can produce outstanding classification performance. The following algorithms will be trained to predict whether an asteroid is hazardous or not:
+- Naive bayes (NB)
+- Support vector machine (SVM)
+- Decision tree (DT)
+- XGBoost
 
-
-Repository Strcuture:
+Repository structure (in progress):
 ```
-DSE_511_project3
-│   README.md
-│   file001.txt    
+├── LICENSE
+├── README.md               <- The project description and details.
+├── .gitignore              <- Text file that tells Git which files or folders to ignore.
+├── data
+│   ├── raw                 <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
+│   └── processed           <- The processed data used to train and evaluate the models.
 │
-└───data
-│   │   raw
-│   │   processed
-│   
-└───folder2
-    │   file021.txt
-    │   file022.txt
+├── models                  <- Trained and serialized models, model predictions, or model summaries
+│
+├── reports                 <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── proposal.pdf        <- The project proposal.
+│
+├── requirements.txt        <- The requirements file for reproducing the analysis environment, e.g.
+│                              generated with `pip freeze > requirements.txt`
+│
+├── src                     <- Source code for use in this project.
+│   ├── preprocessing.py    <- The data preprocessing script.
+│   └── models              <- Scripts to train and evaluate models.
 ```
-
-The repository contains several directories. Two directories containing the raw and processed data, one directory with the written reports (proposal and final report), and one directory with source code written in Python. 
-
-Tasks: 
-Proposal (Christoph)
-Data importing and pre-processing (Anna)
-Data analysis + visualization (Anna)
-Data modeling and evaluation with/without dimensionality reduction (Katie, Christoph)
-
-Algorithms: 
-Naive bayes, baseline model (Christoph)
-SVM (Christoph)
-Decision tree (Katie)
-XGBoost (Katie)
-
-Modeling and evaluation pipeline:
-Train with GridSearchCV (cross validation + hyperparameter tuning) -> Use best model to predict test data -> Report evaluation metrics (F1, Precision, Recall) + plots 
-- Set seed = 0 for reproducibility
