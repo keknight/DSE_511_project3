@@ -6,6 +6,20 @@ This github repository is for the binary classification of the impact risk of ne
 
 
 Repository Strcuture:
+```
+DSE_511_project3
+│   README.md
+│   file001.txt    
+│
+└───data
+│   │   raw
+│   │   processed
+│   
+└───folder2
+    │   file021.txt
+    │   file022.txt
+```
+
 The repository contains several directories. Two directories containing the raw and processed data, one directory with the written reports (proposal and final report), and one directory with source code written in Python. 
 
 Tasks: 
