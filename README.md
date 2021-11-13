@@ -32,7 +32,7 @@ Repository structure (in progress):
 
 
 
-The train and test datasets can be loaded using the following code:
+The different datasets in data/ can be loaded using the following code:
 ```
 # Load normalized data
 with open("data/processed/train_scaled.pkl", "rb") as f:
