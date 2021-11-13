@@ -49,3 +49,6 @@ with open("data/processed/train_scaled_pca.pkl", "rb") as f:
 with open("data/processed/test_scaled_pca.pkl", "rb") as f:
     X_test_scaled_pca, y_test = pkl.load(f)
 ```
+
+Acknowledgements
+Dataset: All the data is from the (http://neo.jpl.nasa.gov/). This API is maintained by SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English and Peter Baunach.
