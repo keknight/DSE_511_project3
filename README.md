@@ -1,13 +1,12 @@
 # NASA: Asteroids Classification
 
-### Project description:
 This github repository is for the binary classification of the impact risk of near-earth objects (NEOs) for planet earth and the earth's population. The main research question is whether standard "off-the-shelf" algorithms can produce outstanding classification performance. The following algorithms will be trained to predict whether an asteroid is hazardous or not:
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
 - XGBoost
 
-### Repository structure (in progress):
+### Repository structure (in progress)
 ```
 ├── LICENSE
 ├── README.md               <- The project description and details.
@@ -31,8 +30,7 @@ This github repository is for the binary classification of the impact risk of ne
 
 
 
-### Load data instructions
-The different datasets in data/ can be loaded using the following code:
+### Code examples
 ```
 # Load normalized data
 with open("data/processed/train_scaled.pkl", "rb") as f:
