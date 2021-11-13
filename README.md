@@ -1,5 +1,5 @@
 # DSE 511 - Introduction to Data Science and Computing I
-# Final Project
+# NASA: Asteroids Classification
 
 Project description:
 This github repository is for the binary classification of the impact risk of near-earth objects (NEOs) for planet earth and the earth's population. The main research question is whether standard "off-the-shelf" algorithms can produce outstanding classification performance. The following algorithms will be trained to predict whether an asteroid is hazardous or not:
@@ -28,4 +28,5 @@ Repository structure (in progress):
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
 │   └── models              <- Scripts to train and evaluate models.
+└──
 ```
