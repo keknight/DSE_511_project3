@@ -28,5 +28,4 @@ Repository structure (in progress):
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
 │   └── models              <- Scripts to train and evaluate models.
-└──
 ```
