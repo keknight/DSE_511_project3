@@ -1,6 +1,7 @@
 # NASA: Asteroids Classification
 
-This github repository is for the binary classification of the impact risk of near-earth objects (NEOs) for planet earth and the earth's population. The main research question is whether standard "off-the-shelf" algorithms can produce outstanding classification performance. The following algorithms will be trained to predict whether an asteroid is hazardous or not:
+Predicting whether an asteroid is hazardous or not using data provided by NASA.
+The following machine learning algorithms will be used for this binary classification task:
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
