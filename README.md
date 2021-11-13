@@ -31,7 +31,8 @@ Repository structure (in progress):
 ```
 
 
-Normalized train/test and normalized+pca train/test data can be loaded using the following code:
+
+The train and test datasets can be loaded using the following code:
 ```
 # Load normalized data
 with open("data/processed/train_scaled.pkl", "rb") as f:
@@ -39,6 +40,7 @@ with open("data/processed/train_scaled.pkl", "rb") as f:
     
 with open("data/processed/test_scaled.pkl", "rb") as f:
     X_test_scaled, y_test = pkl.load(f)
+    
     
 # Load normalized + PCA data
 with open("data/processed/train_scaled_pca.pkl", "rb") as f:
