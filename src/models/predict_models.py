@@ -46,7 +46,7 @@ def predict_model(
         A dataframe containing the performance metric results
     """
     # loading the best model from hyper-parameter tuning and training
-    with open(f'trained_{clf_v}_model.pkl', 'rb') as f:
+    with open(os.path.join(os.getcwd(), 'models', f'trained_{clf_v}_model.pkl'), 'rb') as f:
         clf = pickle.load(f)
 
     y_pred = clf.predict(X_test)  # get prediction for test dataset

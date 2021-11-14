@@ -8,6 +8,7 @@ principal component analysis.
 
 """
 
+import os
 import numpy as np
 # Type hinting
 from typing import List
@@ -109,7 +110,7 @@ def train_model(
     # train best model
     clf_best.fit(X_train, y_train)
 
-    with open(f'trained_{clf_v}_model.pkl', 'wb') as f:
+    with open(os.path.join(os.getcwd(), 'models', f'trained_{clf_v}_model.pkl'), 'wb') as f:
         pickle.dump(clf_best, f)
 
     return clf_best
