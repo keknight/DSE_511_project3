@@ -27,10 +27,13 @@ The following machine learning algorithms will be used for this binary classific
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
 │   └── models              <- Scripts to train and evaluate models.
+|    └── train_nb_svc_model.py
+|    └── predict_models.py
 ```
 
 
-
+predict_model.py
+│   │   └── train_model.py
 ### Code examples
 ```
 # Load normalized data
