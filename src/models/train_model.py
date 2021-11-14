@@ -34,30 +34,31 @@ print('test:', X_test.shape, y_test.shape)
 #	'min_impurity_split', 'min_samples_leaf', 'min_samples_split', 'min_weight_fraction_leaf', 'random_state', 'splitter']
 
 #assign classifier 
-clf_dt = DecisionTreeClassifier()
+clf_dt = DecisionTreeClassifier(random_state=42)
 
 
 #create a grid of parameters to test 
 parameters_dt = {
-    'ccp_alpha': (1.0, 1.5, 2.0),
-    'class_weight': (None, 5000, 10000, 50000),
-    'criterion': ((1, 1), (1, 2)),  # unigrams or bigrams
-    'max_depth': (True, False),
-    'max_features': (0.5, 1.0, 1.5, 2.0),
-    'max_leaf_nodes': (True, False),
+    'ccp_alpha': (0.0, 1.0, 1.5, 2.0),
+    'criterion': ('gini', 'entropy'),
+    'max_depth': (None, 2, 4, 6, 8, 10, 12),
+    'max_features': (None, 'auto', 'sqrt', 'log2'),
+    'max_leaf_nodes': (list(range(2, 100))),
+    'min_samples_leaf': (1, 2, 3, 4, 5),
+    'min_samples_split': (2, 4, 6, 8, 10),
+    'splitter': ('best', 'random')
 }
 
 #GridSearchCV (cross validation + hyperparameter tuning)
 dt_gridsearch = GridSearchCV(clf_dt, parameters_dt, cv=10, scoring='accuracy')
 
 
+dt_gridsearch.fit(X_train, y_train)
+print(dt_gridsearch.best_estimator_.get_params())
 
-
-clf = clf.fit(X_train,y_train)
-y_pred = clf.predict(X_test)
+#y_pred = dt.predict(X_test)
 
 #XGBoost 
-
 
 #Use best model to predict test data
 
