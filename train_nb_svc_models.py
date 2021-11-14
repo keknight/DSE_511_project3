@@ -35,7 +35,7 @@ import pickle
 seed = 0
 
 
-def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int, float]]:
+def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int]]:
     """
     Function that returns the classifier and parameter grid for hyper-parameter tuning.
 
