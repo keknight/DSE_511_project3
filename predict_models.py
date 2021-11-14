@@ -18,33 +18,10 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 
-
-from typing import List
-from typing import Dict
-from typing import Tuple
-from typing import Union
 from typing import TypeVar
 PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
 PandasSeries = TypeVar('pandas.core.series.Series')
 SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
-
-
-def load_model(clf_v: str) -> SklearnClassifier:
-    """
-    Function that loads the saved best model for a given classification algorithm.
-    Parameters
-    ----------
-    clf_v: str
-        Variable that indicates the type of initialized classifier ('nb', 'svc')
-
-    Returns
-    -------
-    SklearnClassifier
-
-    """
-    with open(f'trained_{clf_v}_model.pkl', 'rb') as f:
-        clf = pickle.load(f)
-    return clf
 
 
 def predict_model(
@@ -69,7 +46,8 @@ def predict_model(
         A dataframe containing the performance metric results
     """
     # loading the best model from hyper-parameter tuning and training
-    clf = load_model(clf_v=clf_v)
+    with open(f'trained_{clf_v}_model.pkl', 'rb') as f:
+        clf = pickle.load(f)
 
     y_pred = clf.predict(X_test)  # get prediction for test dataset
 
