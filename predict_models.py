@@ -82,6 +82,8 @@ def predict_model(
                  'fn',
                  'tn'])
 
+    save_results(df_results=df_results)
+
     return df_results
 
 
