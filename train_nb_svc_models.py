@@ -69,9 +69,7 @@ def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int, float
 
 def train_model(
         X_train: PandasDataFrame,
-        X_test: PandasDataFrame,
         y_train: PandasSeries,
-        y_test: PandasSeries,
         clf_v: str,
         cv_m: int) -> List[Union[float, List[float]]]:
     """
