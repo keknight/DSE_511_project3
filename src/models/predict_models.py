@@ -97,10 +97,10 @@ def save_results(df_results: PandasDataFrame):
     df_results: PandasDataFrame
         A dataframe containing the results from model evaluation.
     """
-    main_dir = 'DSE_511_project3'
-    path_to_file = os.path.join(main_dir, 'classification_results.csv')
+    path_to_file = os.path.join(os.getcwd(), 'models', 'classification_results.csv')
     if os.path.exists(path_to_file):
         with open(path_to_file, 'a') as f:
             df_results.to_csv(f, header=False)
     else:
         df_results.to_csv(path_to_file)
+
