@@ -1,11 +1,12 @@
 import os
 import pickle
-import numpy as np
+import pandas as pd
 from typing import TypeVar
+PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
 SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
 
 
-def data_loader(pca: bool=False) -> np.ndarray:
+def data_loader(pca: bool=False) -> PandasDataFrame:
     """
     Function to load the pickled data.
 
@@ -23,21 +24,16 @@ def data_loader(pca: bool=False) -> np.ndarray:
     """
     if pca:
         with open(os.path.join('..', 'data', 'processed', 'train_scaled_pca.pkl'), 'rb') as input_file:
-            train = pickle.load(input_file)
+            X_train, y_train = pickle.load(input_file)
         with open(os.path.join('..', 'data', 'processed', 'test_scaled_pca.pkl'), 'rb') as input_file:
-            test = pickle.load(input_file)
+            X_test, y_test = pickle.load(input_file)
 
     elif pca is False:
         with open(os.path.join('..', 'data', 'processed', 'train_scaled.pkl'), 'rb') as input_file:
-            train = pickle.load(input_file)
+            X_train, y_train = pickle.load(input_file)
         with open(os.path.join('..', 'data', 'processed', 'test_scaled.pkl'), 'rb') as input_file:
-            test = pickle.load(input_file)
+            X_test, y_test = pickle.load(input_file)
 
-    X_train = train[0]
-    y_train = train[1]
-
-    X_test = test[0]
-    y_test = test[1]
 
     return X_train, y_train, X_test, y_test
 
