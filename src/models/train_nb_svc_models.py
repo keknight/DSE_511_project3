@@ -57,7 +57,7 @@ def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int]]:
         param_grid = {'var_smoothing': np.logspace(0, -9, num=100)}
 
     elif clf_v == 'svc':
-        clf = SVC(random_state=seed)
+        clf = SVC(random_state=seed, probability=True)
         param_grid = [
           {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
           {'C': [1, 10, 100, 1000], 'gamma': [0.1, 0.01, 0.001, 0.0001], 'kernel': ['rbf']},

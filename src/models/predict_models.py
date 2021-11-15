@@ -51,7 +51,9 @@ def predict_model(
     # load the model
     clf = load_model(clf_v=clf_v, pca=pca)
 
+
     y_pred = clf.predict(X_test)  # get prediction for test dataset
+    y_pred_proba = clf.predict_proba(X_test)
 
     # Do model performance evaluation
     f1 = f1_score(y_test, y_pred, average='binary', pos_label=1)
@@ -87,7 +89,7 @@ def predict_model(
 
     #save_results(df_results=df_results)
 
-    return df_results
+    return df_results, y_pred_proba
 
 
 def save_results(df_results: PandasDataFrame):
