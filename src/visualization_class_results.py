@@ -1,39 +1,27 @@
 # Imports
+import os
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve
 
-from typing import List
-from typing import TypeVar
-PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
-PandasSeries = TypeVar('pandas.core.series.Series')
-SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
+from typing import List, Tuple
+from utils import load_model
+
 
 # ROC Function
-def plot_roc_curve(
-        X_test: PandasDataFrame,
-        y_test: PandasSeries,
-        clfs: List[SklearnClassifier],
-        clfs_names: List[str]):
+def plot_roc_curve(y_test: List[int], y_pred_probas: List[List[float]], clfs_names: List[Tuple[str, str]]):
     """
     Function that creates the Receiver-operator-characteristic curve (ROC-Curve) for all specified models.
 
     Parameters
     ----------
-    X_test: PandasDataFrame
-        Dataframe that contains all feature space of test data
-    y_test: PandasSeries
-        Series that contains the ground-truth labels of the test data
-    clfs: List[SklearnClassifier]
-        A list containing all models that should be plotted on the ROC-Curve.
-    clfs_names: List[str]
-        A list containing all the model names that should be shown in legend of the plot.
+    y_test: List[int]
+        Ground-truth labels for each sample.
+    y_pred_probas: List[List[float]]
+        A list containing np matrices with prediction probabilities for each classifier.
+    clfs_names: List[Tuple[str, str]]
+        A list containing all model names and if pca was used or not that should be shown in legend of the plot.
 
     """
-
-    clf_probas = []
-    for clf in clfs:
-        y_pred_proba = clf.predict_proba(X_test)
-        clf_probas.append(y_pred_proba)
 
     random_probs = [0 for _ in range(len(y_test))]
 
@@ -44,9 +32,9 @@ def plot_roc_curve(
     plt.plot(random_fpr, random_tpr, linestyle='--', label='Random')
 
     # For the models
-    colors = ['b', 'g', 'o', 'r']
-    for i in range(clf_probas):
-        model_fpr, model_tpr, _ = roc_curve(y_test, clf_probas[i])
+    colors = ['b', 'g', 'k', 'r']
+    for i in range(len(y_pred_probas)):
+        model_fpr, model_tpr, _ = roc_curve(y_test, y_pred_probas[i][:, 1])
         plt.plot(model_fpr, model_tpr, marker='.', label=clfs_names[i], color=colors[i])
     # Plot the roc curve for the model and the random model line
     # Create labels for the axis
@@ -58,5 +46,8 @@ def plot_roc_curve(
 
     # show the legend
     plt.legend()
+
+    # save ROC curve
+    plt.savefig(os.path.join('..', 'models', 'roc_curve.png'))
     # show the plot
     plt.show()
