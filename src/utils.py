@@ -1,6 +1,8 @@
 import os
 import pickle
 import numpy as np
+from typing import TypeVar
+SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
 
 
 def data_loader(pca: bool=False) -> np.ndarray:
@@ -10,7 +12,7 @@ def data_loader(pca: bool=False) -> np.ndarray:
     Parameters
     ----------
     pca: bool
-        variable determining which type of processed data is requests, e.g., 'scaled' or 'scaled_pca'
+        variable determining if pca was used or not.
 
     Returns
     -------
@@ -39,3 +41,47 @@ def data_loader(pca: bool=False) -> np.ndarray:
 
     return X_train, y_train, X_test, y_test
 
+
+def save_model(clf_best: SklearnClassifier, clf_v: str, pca: bool):
+    """
+    Function that pickles estimator.
+    Parameters
+    ----------
+    clf_best: SklearnClassifier
+        Best estimator for a given algorithm and hyper-parameter space
+    clf_v: str
+        Variable that indicates the type of initialized classifier ('nb', 'svc')
+    pca: bool
+        Variable indicating whether scaled or scaled + pca data is used
+    """
+    if pca:
+        pca_s = '_pca'
+    else:
+        pca_s = ''
+    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'wb') as f:
+        pickle.dump(clf_best, f)
+
+
+def load_model(clf_v: str, pca: bool):
+    """
+    Function that loads a pickled estimators.
+    Parameters
+    ----------
+    clf_v: str
+        Variable that indicates the type of initialized classifier ('nb', 'svc').
+    pca: bool
+        Variable indicating whether scaled or scaled + pca data is used.
+
+    Returns
+    -------
+    SklearnClassifier
+        Loads pickled estimator for a given algorithm and data preprocessing method.
+    """
+    if pca:
+        pca_s = '_pca'
+    else:
+        pca_s = ''
+    # loading the best model from hyper-parameter tuning and training
+    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'rb') as f:
+        clf = pickle.load(f)
+    return clf
