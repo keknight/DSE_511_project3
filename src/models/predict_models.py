@@ -27,7 +27,8 @@ SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
 def predict_model(
         X_test: PandasDataFrame,
         y_test: PandasSeries,
-        clf_v: str) -> PandasDataFrame:
+        clf_v: str,
+        pca: bool=False) -> PandasDataFrame:
     """
     Function that does model evaluation on unseen testing dataset.
 
@@ -39,14 +40,20 @@ def predict_model(
         Series that contains the ground-truth labels of the test data
     clf_v: str
         Variable that indicates the type of initialized classifier ('nb', 'svc')
+    pca: bool
+        Boolean variable indicating if pca data used or not.
 
     Returns
     -------
     PandasDataFrame
         A dataframe containing the performance metric results
     """
+    if pca:
+        pca_s = '_pca'
+    else:
+        pca_s = ''
     # loading the best model from hyper-parameter tuning and training
-    with open(os.path.join(os.getcwd(), 'models', f'trained_{clf_v}_model.pkl'), 'rb') as f:
+    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'rb') as f:
         clf = pickle.load(f)
 
     y_pred = clf.predict(X_test)  # get prediction for test dataset
@@ -70,10 +77,11 @@ def predict_model(
     fn = conf_matrix[1][0]
     tn = conf_matrix[1][1]
 
-    results = [clf_v, f1, precision, recall, tp, fp, fn, tn]
+    results = [[clf_v, pca, f1, precision, recall, tp, fp, fn, tn]]
     df_results = pd.DataFrame(
         results,
         columns=['model',
+                 'pca',
                  'f1_score',
                  'precision',
                  'recall',
@@ -97,7 +105,7 @@ def save_results(df_results: PandasDataFrame):
     df_results: PandasDataFrame
         A dataframe containing the results from model evaluation.
     """
-    path_to_file = os.path.join(os.getcwd(), 'models', 'classification_results.csv')
+    path_to_file = os.path.join('..', 'models', 'classification_results.csv')
     if os.path.exists(path_to_file):
         with open(path_to_file, 'a') as f:
             df_results.to_csv(f, header=False)

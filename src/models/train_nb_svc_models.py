@@ -55,7 +55,7 @@ def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int]]:
     """
 
     if clf_v == 'nb':
-        clf = GaussianNB(random_state=seed)
+        clf = GaussianNB()
         param_grid = {'var_smoothing': np.logspace(0, -9, num=100)}
 
     elif clf_v == 'svc':
@@ -72,7 +72,8 @@ def train_model(
         X_train: PandasDataFrame,
         y_train: PandasSeries,
         clf_v: str,
-        cv_m: int) -> List[Union[float, List[float]]]:
+        cv_m: int,
+        pca: bool=False) -> List[Union[float, List[float]]]:
     """
     This function performs hyperparameter tuning via the function GridSearchCV, takes the best estimator of the
     respective classifier for model evaluation. The splits during cross-validation are stratified.
@@ -91,6 +92,8 @@ def train_model(
         Variable that indicates the type of initialized classifier ('nb', 'svc')
     cv_m: int
         Variable that holds number of stratified splits (folds). Stratified splits have similar label distribution.
+    pca: bool
+        Variable indicating whether scaled or scaled + pca data is used
 
     Returns
     -------
@@ -109,8 +112,11 @@ def train_model(
     clf_best = grid_clf.best_estimator_
     # train best model
     clf_best.fit(X_train, y_train)
-
-    with open(os.path.join(os.getcwd(), 'models', f'trained_{clf_v}_model.pkl'), 'wb') as f:
+    if pca:
+        pca_s = '_pca'
+    else:
+        pca_s = ''
+    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'wb') as f:
         pickle.dump(clf_best, f)
 
     return clf_best
