@@ -103,7 +103,8 @@ def save_results(df_results: PandasDataFrame):
     Parameters
     ----------
     df_results: PandasDataFrame
-        A dataframe containing the results from model evaluation.
+        A dataframe containing the results from model evaluation. The dataframe should contain values in the
+        following order: 'model', 'pca', 'f1_score', 'precision', 'recall', 'tp', 'fp', 'fn', 'tn'.
     """
     path_to_file = os.path.join('..', 'models', 'classification_results.csv')
     if os.path.exists(path_to_file):
