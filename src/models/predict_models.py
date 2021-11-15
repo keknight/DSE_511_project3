@@ -9,8 +9,8 @@ principal component analysis.
 """
 import pandas as pd
 
-import pickle
 import os
+from utils import load_model
 
 # Performance Metrics
 from sklearn.metrics import confusion_matrix
@@ -48,13 +48,8 @@ def predict_model(
     PandasDataFrame
         A dataframe containing the performance metric results
     """
-    if pca:
-        pca_s = '_pca'
-    else:
-        pca_s = ''
-    # loading the best model from hyper-parameter tuning and training
-    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'rb') as f:
-        clf = pickle.load(f)
+    # load the model
+    clf = load_model(clf_v=clf_v, pca=pca)
 
     y_pred = clf.predict(X_test)  # get prediction for test dataset
 
@@ -90,7 +85,7 @@ def predict_model(
                  'fn',
                  'tn'])
 
-    save_results(df_results=df_results)
+    #save_results(df_results=df_results)
 
     return df_results
 

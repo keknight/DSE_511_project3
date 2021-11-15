@@ -29,9 +29,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
 # use pickle to save trained model
-import pickle
-
-
+from utils import save_model
 # Set global variable seed for reproducibility
 seed = 0
 
@@ -112,11 +110,8 @@ def train_model(
     clf_best = grid_clf.best_estimator_
     # train best model
     clf_best.fit(X_train, y_train)
-    if pca:
-        pca_s = '_pca'
-    else:
-        pca_s = ''
-    with open(os.path.join('..', 'models', f'trained_{clf_v}{pca_s}_model.pkl'), 'wb') as f:
-        pickle.dump(clf_best, f)
+
+    # save best estimator
+    save_model(clf_best=clf_best, clf_v=clf_v, pca=pca)
 
     return clf_best
