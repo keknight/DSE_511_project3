@@ -5,7 +5,7 @@ The following machine learning algorithms will be used for this binary classific
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
-- XGBoost
+- Random Forest (RF)
 
 ### Repository structure (in progress)
 ```
