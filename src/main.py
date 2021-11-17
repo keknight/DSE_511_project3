@@ -6,11 +6,13 @@ from utils import data_loader
 from models.train_nb_svc_models import train_model
 from models.predict_models import predict_model
 from visualization_class_results import plot_roc_curve
-
+from data_preprocessing import data_preprocessing
 
 def main():
-    # load data
+    # preprocess data
+    data_preprocessing()
 
+    # load data
     X_train_scaled, y_train, X_test_scaled, y_test = data_loader(pca=False)
     X_train_pca, y_train, X_test_pca, y_test = data_loader(pca=True)
 
