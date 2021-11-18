@@ -32,7 +32,7 @@ def plot_roc_curve(y_test: List[int], y_pred_probas: List[List[float]], clfs_nam
     plt.plot(random_fpr, random_tpr, linestyle='--', label='Random')
 
     # For the models
-    colors = ['b', 'g', 'k', 'r']
+    colors = ['b', 'g', 'k', 'r', 'c', 'm', 'y', 'darkviolet']
     for i in range(len(y_pred_probas)):
         model_fpr, model_tpr, _ = roc_curve(y_test, y_pred_probas[i][:, 1])
         plt.plot(model_fpr, model_tpr, marker='.', label=clfs_names[i], color=colors[i])

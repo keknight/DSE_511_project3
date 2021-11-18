@@ -36,9 +36,30 @@ def main():
     svc_results_pca, svc_pca_y_pred_proba = predict_model(X_test=X_test_pca, y_test=y_test, clf_v='svc', pca=True)
     print(svc_results_pca)
 
+    # train decision tree classifier with scaled data
+    clf_dt = train_model(X_train=X_train_scaled, y_train=y_train, clf_v='dt', cv_m=5, pca=False)
+    dt_results, dt_y_pred_proba = predict_model(X_test=X_test_scaled, y_test=y_test, clf_v='dt', pca=False)
+    print(dt_results)
+
+    # train decision tree classifier with scaled + pca data
+    clf_dt_pca = train_model(X_train=X_train_pca, y_train=y_train, clf_v='dt', cv_m=5, pca=True)
+    dt_results_pca, dt_pca_y_pred_proba = predict_model(X_test=X_test_pca, y_test=y_test, clf_v='dt', pca=True)
+    print(dt_results_pca)
+
+    # train random forest classifier with scaled data
+    clf_rf = train_model(X_train=X_train_scaled, y_train=y_train, clf_v='rf', cv_m=5, pca=False)
+    rf_results, rf_y_pred_proba = predict_model(X_test=X_test_scaled, y_test=y_test, clf_v='rf', pca=False)
+    print(rf_results)
+
+    # train random forest classifier with scaled + pca data
+    clf_rf_pca = train_model(X_train=X_train_pca, y_train=y_train, clf_v='rf', cv_m=5, pca=True)
+    rf_results_pca, rf_pca_y_pred_proba = predict_model(X_test=X_test_pca, y_test=y_test, clf_v='rf', pca=True)
+    print(rf_results_pca)
+
     # plot ROC-Curve
-    y_pred_probas = [nb_y_pred_proba, nb_pca_y_pred_proba, svc_y_pred_proba, svc_pca_y_pred_proba]
-    clfs_names = ['NB + Scaled', 'NB + PCA', 'SVC + Scaled', 'SVC + PCA']
+    y_pred_probas = [nb_y_pred_proba, nb_pca_y_pred_proba, svc_y_pred_proba, svc_pca_y_pred_proba, 
+      dt_y_pred_proba, dt_pca_y_pred_proba, rf_y_pred_proba, rf_pca_y_pred_proba]
+    clfs_names = ['NB + Scaled', 'NB + PCA', 'SVC + Scaled', 'SVC + PCA', 'DT + Scaled', 'DT + PCA', 'RF + Scaled', 'RF + PCA']
     plot_roc_curve(y_test=y_test, y_pred_probas=y_pred_probas, clfs_names=clfs_names)
 
 if __name__ == "__main__":

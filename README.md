@@ -5,7 +5,7 @@ The following machine learning algorithms will be used for this binary classific
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
-- XGBoost
+- Random Forest (RF)
 
 ### Repository structure (in progress)
 ```
@@ -36,6 +36,7 @@ predict_model.py
 │   │   └── train_model.py
 ### Code examples
 ```
+## Load processsed data ##
 # Load normalized data
 with open("data/processed/train_scaled.pkl", "rb") as f:
     X_train_scaled, y_train = pkl.load(f)

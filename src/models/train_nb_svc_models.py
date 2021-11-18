@@ -1,9 +1,10 @@
 """
-Title: Binary Classification - Naive Bayes and Support Vector Machine
-Author: Christoph Metzner
+Title: Binary Classification - Naive Bayes, Support Vector Machine, Decision Tree, and Random Forest
+Author: Christoph Metzner and Katie Knight
 
-This file contains source code to perform a binary classification using the machine learning algorithms naive bayes
-and support vector machine. The classification is performed on normalized data and data with reduced dimensions using
+This file contains source code to perform a binary classification using the machine learning algorithms naive bayes, 
+support vector machine, Decision Tree, and Random Forest 
+The classification is performed on normalized data and data with reduced dimensions using
 principal component analysis.
 
 """
@@ -27,6 +28,8 @@ from sklearn.model_selection import GridSearchCV
 # ML-Classification Algorithms
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # use pickle to save trained model
 from utils import save_model
@@ -62,6 +65,28 @@ def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int]]:
           {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
           {'C': [1, 10, 100, 1000], 'gamma': [0.1, 0.01, 0.001, 0.0001], 'kernel': ['rbf']},
          ]
+
+    elif clf_v == 'dt':
+        clf = DecisionTreeClassifier(random_state=seed)
+        param_grid = [
+          {'ccp_alpha': [0.0, 1.0, 1.5, 2.0]},
+          {'criterion': ['gini', 'entropy']},
+          {'max_features': [None, 'auto', 'sqrt', 'log2']},
+          {'max_leaf_nodes': (list(range(2, 100)))},
+          {'splitter': ['best', 'random']}
+        ]
+
+    elif clf_v == 'rf':
+        clf = RandomForestClassifier()
+        param_grid = [
+          {'n_estimators': [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]},
+          {'bootstrap': [True, False]},
+          {'max_features': ['auto', 'sqrt']},
+          {'max_depth': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, None]},
+          {'min_samples_leaf': [1, 2, 3, 4]},
+          {'min_samples_split': [2, 4, 6, 8, 10]}
+        ]
+
 
     return clf, param_grid
 
