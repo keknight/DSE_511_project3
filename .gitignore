@@ -1,5 +1,13 @@
+## The .gitignore file specifies things that git should ignore.
+
+# Jupyter Notebook
 **/.ipynb_checkpoints
-*/.ipynb_checkpoints/*
+
+# Byte-compiled / optimized / DLL files
 **/__pycache__/
-**/.DS_Store/
-**/.idea/
+
+# PyCharm ide files
+**/.idea
+
+# macOS generated
+**/.DS_Store
