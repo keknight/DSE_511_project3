@@ -74,7 +74,11 @@ def predict_model(
     fn = conf_matrix[1][0]
     tn = conf_matrix[1][1]
 
-    results = [[clf_v, pca, f1, precision, recall, tp, fp, fn, tn]]
+    if pca:
+        pca_s = 'pca_true'
+    else:
+        pca_s = 'pca_false'
+    results = [[clf_v, pca_s, f1, precision, recall, tp, fp, fn, tn]]
     df_results = pd.DataFrame(
         results,
         columns=['model',
@@ -87,7 +91,7 @@ def predict_model(
                  'fn',
                  'tn'])
 
-    #save_results(df_results=df_results)
+    save_results(df_results=df_results)
 
     return df_results, y_pred_proba
 
@@ -104,9 +108,17 @@ def save_results(df_results: PandasDataFrame):
         following order: 'model', 'pca', 'f1_score', 'precision', 'recall', 'tp', 'fp', 'fn', 'tn'.
     """
     path_to_file = os.path.join('..', 'models', 'classification_results.csv')
+    clf_v = df_results.loc[0, 'model']
+    pca = df_results.loc[0, 'pca']
+
     if os.path.exists(path_to_file):
-        with open(path_to_file, 'a') as f:
-            df_results.to_csv(f, header=False)
+        df_res_exist = pd.read_csv(path_to_file)
+        # Check if results for model and data-preprocessing method already exist in csv file
+        if df_res_exist.loc[(df['model'] == clf_v) & (df['pca'] == pca)].any().all():
+            print('Model evaluation results already stored in file')
+        else:
+            with open(path_to_file, 'a') as f:
+                df_results.to_csv(f, header=False)
     else:
         df_results.to_csv(path_to_file)
 
