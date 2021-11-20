@@ -25,7 +25,6 @@ def main():
                                                 clf_v='nb',
                                                 pca=False)
     print(nb_results)
-
     # train Gaussian naive bayes classifier with scaled + pca data
     clf_nb_pca, clf_nb_pca_time = train_model(X_train=X_train_pca, y_train=y_train, clf_v='nb', cv_m=5, pca=True)
     nb_results_pca, nb_pca_y_pred_proba = predict_model(X_test=X_test_pca,
