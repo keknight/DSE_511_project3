@@ -11,3 +11,7 @@
 
 # macOS generated
 **/.DS_Store
+
+# data, models 
+models/
+data/
