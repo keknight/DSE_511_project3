@@ -131,6 +131,8 @@ def train_model(
     grid_clf = GridSearchCV(clf, param_grid, cv=cv_m, scoring='f1', n_jobs=-1)
     grid_clf.fit(X_train, y_train)
 
+    computing_time = np.mean(grid_clf.cv_results_['mean_fit_time']) + np.mean(grid_clf.cv_results_['mean_score_time'])
+
     # get best model after hyper-parameter tuning
     clf_best = grid_clf.best_estimator_
     # train best model
@@ -139,4 +141,4 @@ def train_model(
     # save best estimator
     save_model(clf_best=clf_best, clf_v=clf_v, pca=pca)
 
-    return clf_best
+    return clf_best, computing_time
