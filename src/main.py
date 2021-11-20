@@ -3,7 +3,7 @@ Title: Main file that reproduces the results of the binary classification.
 """
 import numpy as np
 from utils import data_loader
-from models.train_nb_svc_models import train_model
+from models.train_models import train_model
 from models.predict_models import predict_model
 from visualization_class_results import plot_roc_curve
 from data_preprocessing import data_preprocessing
