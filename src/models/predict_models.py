@@ -114,7 +114,7 @@ def save_results(df_results: PandasDataFrame):
     if os.path.exists(path_to_file):
         df_res_exist = pd.read_csv(path_to_file)
         # Check if results for model and data-preprocessing method already exist in csv file
-        if df_res_exist.loc[(df['model'] == clf_v) & (df['pca'] == pca)].any().all():
+        if df_res_exist.loc[(df_res_exist['model'] == clf_v) & (df_res_exist['pca'] == pca)].any().all():
             print('Model evaluation results already stored in file')
         else:
             with open(path_to_file, 'a') as f:
