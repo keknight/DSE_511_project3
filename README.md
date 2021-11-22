@@ -27,30 +27,13 @@ The following machine learning algorithms will be used for this binary classific
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
 │   └── models              <- Scripts to train and evaluate models.
-|    └── train_nb_svc_model.py
+|    └── train_models.py
 |    └── predict_models.py
 ```
 
-
-predict_model.py
-│   │   └── train_model.py
-### Code examples
 ```
-## Load processsed data ##
-# Load normalized data
-with open("data/processed/train_scaled.pkl", "rb") as f:
-    X_train_scaled, y_train = pkl.load(f)
-    
-with open("data/processed/test_scaled.pkl", "rb") as f:
-    X_test_scaled, y_test = pkl.load(f)
-    
-    
-# Load normalized + PCA data
-with open("data/processed/train_scaled_pca.pkl", "rb") as f:
-    X_train_scaled_pca, y_train = pkl.load(f)
-    
-with open("data/processed/test_scaled_pca.pkl", "rb") as f:
-    X_test_scaled_pca, y_test = pkl.load(f)
+### Code examples
+
 ```
 
 ### Acknowledgements
