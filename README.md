@@ -1,7 +1,7 @@
 # NASA: Asteroids Classification
 
 Predicting whether an asteroid is hazardous or not using data provided by NASA.
-The following machine learning algorithms will be used for this binary classification task:
+The following machine learning algorithms will be used for this binary classification problem:
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
@@ -21,14 +21,13 @@ The following machine learning algorithms will be used for this binary classific
 ├── reports                 <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── proposal.pdf        <- The project proposal.
 │
-├── requirements.txt        <- The requirements file for reproducing the analysis environment, e.g.
-│                              generated with `pip freeze > requirements.txt`
+├── requirements.txt        <- The requirements file for reproducing the analysis environment.
 │
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
 │   └── models              <- Scripts to train and evaluate models.
-|    └── train_models.py
-|    └── predict_models.py
+│    ├── train_models.py
+│    └── predict_models.py
 ```
 
 ```
