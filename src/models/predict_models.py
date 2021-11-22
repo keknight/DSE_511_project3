@@ -27,6 +27,7 @@ SklearnClassifier = TypeVar('sklearn.svm._classes.SVC')
 def predict_model(
         X_test: PandasDataFrame,
         y_test: PandasSeries,
+        time: float,
         clf_v: str,
         pca: bool=False) -> PandasDataFrame:
     """
@@ -38,6 +39,8 @@ def predict_model(
         Dataframe that contains all feature space of test data
     y_test: PandasSeries
         Series that contains the ground-truth labels of the test data
+    time: float
+        Average computing time of each model during hyperparameter tuning with cross-validation gridsearch
     clf_v: str
         Variable that indicates the type of initialized classifier ('nb', 'svc')
     pca: bool
@@ -78,7 +81,7 @@ def predict_model(
         pca_s = 'pca_true'
     else:
         pca_s = 'pca_false'
-    results = [[clf_v, pca_s, f1, precision, recall, tp, fp, fn, tn]]
+    results = [[clf_v, pca_s, f1, precision, recall, tp, fp, fn, tn, time]]
     df_results = pd.DataFrame(
         results,
         columns=['model',
@@ -89,14 +92,15 @@ def predict_model(
                  'tp',
                  'fp',
                  'fn',
-                 'tn'])
+                 'tn',
+                 'time'])
 
-    save_results(df_results=df_results)
+    save_results(df_results=df_results, file_name='classification_results.csv')
 
     return df_results, y_pred_proba
 
 
-def save_results(df_results: PandasDataFrame):
+def save_results(df_results: PandasDataFrame, file_name: str):
     """
     Function that saves the results to a csv file. If csv file exists results are appended otherwise a new csv file is
     created.
@@ -106,8 +110,10 @@ def save_results(df_results: PandasDataFrame):
     df_results: PandasDataFrame
         A dataframe containing the results from model evaluation. The dataframe should contain values in the
         following order: 'model', 'pca', 'f1_score', 'precision', 'recall', 'tp', 'fp', 'fn', 'tn'.
+    file_name: str
+        Name of file
     """
-    path_to_file = os.path.join('..', 'models', 'classification_results.csv')
+    path_to_file = os.path.join('..', 'models', file_name)
     clf_v = df_results.loc[0, 'model']
     pca = df_results.loc[0, 'pca']
 
