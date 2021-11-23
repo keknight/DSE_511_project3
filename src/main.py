@@ -6,6 +6,7 @@ from utils import data_loader
 from models.train_models import train_model
 from models.predict_models import predict_model
 from visualization_class_results import plot_roc_curve
+from feature_importance import feature_importance
 from data_preprocessing import data_preprocessing
 
 
@@ -93,6 +94,16 @@ def main():
       dt_y_pred_proba, dt_pca_y_pred_proba, rf_y_pred_proba, rf_pca_y_pred_proba]
     clfs_names = ['NB + Scaled', 'NB + PCA', 'SVC + Scaled', 'SVC + PCA', 'DT + Scaled', 'DT + PCA', 'RF + Scaled', 'RF + PCA']
     plot_roc_curve(y_test=y_test, y_pred_probas=y_pred_probas, clfs_names=clfs_names)
+
+    #plot feature importance
+    classifiers = ['nb', 'svc', 'rf', 'dt']
+    #plot for Scaled data
+    for c in classifiers:
+        feature_importance(X_test=X_test_scaled, y_test = y_test, clf_v=c, pca=False)
+    #plot for PCA data
+    for c in classifiers:
+        feature_importance(X_test=X_test_pca, y_test = y_test, clf_v=c, pca=True)
+
 
 if __name__ == "__main__":
     main()
