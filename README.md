@@ -36,6 +36,9 @@ The following machine learning algorithms will be used for this binary classific
 ### Code examples
 
 ```
+# Install project dependencies
+pip install -r requirements.txt
+
 
 ### Acknowledgements
 
