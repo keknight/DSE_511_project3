@@ -16,12 +16,14 @@ The following machine learning algorithms will be used for this binary classific
 │   ├── raw                 <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
 │   └── processed           <- The processed data used to train and evaluate the models.
 │
-├── models                  <- Trained and serialized models, model predictions, or model summaries
+├── notebooks               <- Jupyter notebooks for data analysis and visualization.
+│
+├── models                  <- Trained and serialized models, model predictions, or model summaries.
 │
 ├── reports                 <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── proposal.pdf        <- The project proposal.
 │
-├── requirements.txt        <- The requirements file for reproducing the analysis environment.
+├── requirements.txt        <- The requirements file for reproducing the analysis environment. Contains project dependencies.
 │
 ├── src                     <- Source code for use in this project.
 │   ├── preprocessing.py    <- The data preprocessing script.
