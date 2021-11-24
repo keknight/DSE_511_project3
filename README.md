@@ -34,10 +34,11 @@ The following machine learning algorithms will be used for this binary classific
 
 ```
 ### Code examples
-
 # To install project dependencies
 pip install -r requirements.txt
 
+# The following command will perform data processing, model training and model evaluation
+python main.py
 ```
 
 
