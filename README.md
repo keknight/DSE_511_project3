@@ -32,8 +32,8 @@ The following machine learning algorithms will be used for this binary classific
 │    └── predict_models.py
 ```
 
-```
 ### Code examples
+```
 # To install project dependencies
 pip install -r requirements.txt
 
