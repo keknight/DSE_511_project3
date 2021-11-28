@@ -9,27 +9,41 @@ The following machine learning algorithms will be used for this binary classific
 
 ### Repository structure (in progress)
 ```
-├── LICENSE
-├── README.md               <- The project description and details.
-├── .gitignore              <- Text file that tells Git which files or folders to ignore.
 ├── data
-│   ├── raw                 <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
-│   └── processed           <- The processed data used to train and evaluate the models.
+│   ├── raw                   <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
+│   └── processed             <- The processed data used to train and evaluate the models.
 │
-├── notebooks               <- Jupyter notebooks for data analysis and visualization.
+├── reports                   <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   ├── figures               <- Generated figures to be used in reporting.
+│   └── proposal.pdf          <- The project proposal.
 │
-├── models                  <- Trained and serialized models, model predictions, or model summaries.
+├── notebooks                 <- Jupyter notebooks for data analysis and visualization.
+│   └── data_analysis.ipynb
 │
-├── reports                 <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── proposal.pdf        <- The project proposal.
+├── models                    <- Trained and serialized models, model predictions, or model summaries.
 │
-├── requirements.txt        <- The requirements file for reproducing the analysis environment. Contains project dependencies.
-│
-├── src                     <- Source code for use in this project.
-│   ├── preprocessing.py    <- The data preprocessing script.
-│   └── models              <- Scripts to train and evaluate models.
-│    ├── train_models.py
-│    └── predict_models.py
+├── src                       <- Source code for use in this project.
+│   ├── models                <- Scripts to train and evaluate models.
+│   │   ├── train_models.py
+│   │   └── predict_models.py
+│   │
+│   ├── data_preprocessing.py
+│   │
+│   ├── feature_importance.py
+│   │
+│   ├── main.py
+│   │
+│   ├── utils.py
+│   │
+│   └── visualization_class_results.py
+│ 
+├── .gitignore                <- Text file that tells Git which files or folders to ignore.
+│  
+├── LICENSE         
+│  
+├── README.md                 <- The project description and details.
+│  
+└── requirements.txt          <- The requirements file for reproducing the analysis environment. Contains project dependencies.
 ```
 
 ### Code examples
