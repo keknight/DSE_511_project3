@@ -48,6 +48,6 @@ def plot_roc_curve(y_test: List[int], y_pred_probas: List[List[float]], clfs_nam
     plt.legend()
 
     # save ROC curve
-    plt.savefig(os.path.join('..', 'models', 'roc_curve.png'))
+    plt.savefig(os.path.join('..', 'reports', 'figures', 'roc_curve.png'))
     # show the plot
     plt.show()
