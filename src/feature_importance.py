@@ -1,6 +1,7 @@
 # Imports
 #import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import os
 
 from typing import TypeVar
 PandasDataFrame = TypeVar('pandas.core.frame.DataFrame')
@@ -43,13 +44,13 @@ def feature_importance(
     else:
     	d = 'Scaled'
 
-	r = permutation_importance(clf, X_test, y_test, n_repeats=30, random_state=0, n_jobs=-1)
+    r = permutation_importance(clf, X_test, y_test, n_repeats=30, random_state=0, n_jobs=-1)
 
-	sorted_idx = r.importances_mean.argsort()
+    sorted_idx = r.importances_mean.argsort()
 
-	fig, ax = plt.subplots()
-	ax.boxplot(r.importances[sorted_idx].T, vert=False, labels=X_test.columns[sorted_idx])
-	ax.set_title("Permutation Importance: " + str(clf_v) + ' ' + str(d))
-	fig.tight_layout()
-	plt.savefig(os.path.join('..', 'models', 'permutation_figure_' + str(clf_v) + '_' + str(d) + '.png'))
-	plt.show()
+    fig, ax = plt.subplots()
+    ax.boxplot(r.importances[sorted_idx].T, vert=False, labels=X_test.columns[sorted_idx])
+    ax.set_title("Permutation Importance: " + str(clf_v) + ' ' + str(d))
+    fig.tight_layout()
+    plt.savefig(os.path.join('..', 'models', 'permutation_figure_' + str(clf_v) + '_' + str(d) + '.png'))
+    plt.show()
