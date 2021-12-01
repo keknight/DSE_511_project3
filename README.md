@@ -61,14 +61,13 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 ## Getting Started
 1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
 
-2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw) within this repo, or can be downloaded [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can 
+2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw) within this repo, or can be downloaded [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/processed). 
 
-4. Data processing scripts are being kept [here](Repo folder containing data processing scripts/notebooks)
+4. Data analysis/visualization notebooks are being kept [here](https://github.com/keknight/DSE_511_project3/tree/main/notebooks), and data preprocessing, model training/predicting, and feature importance scripts are being kept [here](https://github.com/keknight/DSE_511_project3/tree/main/src). 
 
-5. Follow setup [instructions](Link to file)
+5. Reports and figures can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/reports).
 
-
-### Code examples
+## Code examples
 ```
 # To install project dependencies
 pip install -r requirements.txt
@@ -77,7 +76,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## Project Members
 
+|Name     |  Slack Handle   | 
+|---------|-----------------|
+|[Katie Knight](https://github.com/[keknight]) |     @keknight    |
+|[Anna-Maria Nau](https://github.com/[annamarianau])| @annamarianau        |
+|[Christoph Metzner](https://github.com/[cmetzner93]) |     @cmetzner93    |
 
 ### Acknowledgements
 
