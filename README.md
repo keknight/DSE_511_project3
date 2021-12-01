@@ -1,11 +1,23 @@
-# NASA: Asteroids Classification
+# NASA Asteroid Classification
 
-Predicting whether an asteroid is hazardous or not using data provided by NASA.
-The following machine learning algorithms will be used for this binary classification problem:
+## Project Intro/Objective
+The purpose of this project is to predict whether an asteroid is hazardous or not.
+
+## Methods Used
+* Data analysis and visualization
+* Dimensionality reduction
+* Machine Learning
+* Predictive Modeling
+* Feature importance
+
+## Project Description
+To predict whether an asteroid is hazardous or not, four supervised machine algorithms were trained on data provided by the NASA API called NeoWS (Near Earth Object Web Service) and which is readily available on Kaggle (https://www.kaggle.com/shrutimehta/nasa-asteroids-classification). Specifically, the following four algorithms were used to perform this binary classification problem:
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
 - Random Forest (RF)
+
+Prior to modeling, the data was split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction was applied. Then each model was trained on both the normalized and normalized+pca train data, and evaluated on the normalized and normalized+pca test data. Lastly, 
 
 ### Repository structure (in progress)
 ```
