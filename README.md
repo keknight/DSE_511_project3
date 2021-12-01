@@ -11,15 +11,15 @@ The purpose of this project is to predict whether an asteroid is hazardous or no
 * Feature importance
 
 ## Project Description
-To predict whether an asteroid is hazardous or not, four supervised machine algorithms were trained on data provided by the NASA API called NeoWS (Near Earth Object Web Service) and which is readily available on Kaggle (https://www.kaggle.com/shrutimehta/nasa-asteroids-classification). Specifically, the following four algorithms were used to perform this binary classification problem:
+To predict whether an asteroid is hazardous or not, four supervised machine algorithms are trained on data provided by the NASA API called NeoWS (Near Earth Object Web Service) and which is readily available on Kaggle (https://www.kaggle.com/shrutimehta/nasa-asteroids-classification). Specifically, the following four algorithms are used to perform this binary classification problem:
 - Naive bayes (NB)
 - Support vector machine (SVM)
 - Decision tree (DT)
 - Random Forest (RF)
 
-Prior to modeling, the data was split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction was applied. Then each model was trained on both the normalized and normalized+pca train data, and evaluated on the normalized and normalized+pca test data. Lastly, 
+Prior to modeling, the data is split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction are applied. Then each algorithm is built on both the normalized and normalized+pca train data (i.e., a total of eight models), and evaluated on the normalized and normalized+pca test data, respectively. Lastly, feature importance is applied to identify the most important input features.
 
-### Repository structure (in progress)
+## Repository structure (in progress)
 ```
 ├── data
 │   ├── raw                   <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
@@ -57,6 +57,16 @@ Prior to modeling, the data was split into a train and test set (80:20 ratio). I
 │  
 └── requirements.txt          <- The requirements file for reproducing the analysis environment. Contains project dependencies.
 ```
+
+## Getting Started
+1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
+
+2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw) within this repo, or can be downloaded [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can 
+
+4. Data processing scripts are being kept [here](Repo folder containing data processing scripts/notebooks)
+
+5. Follow setup [instructions](Link to file)
+
 
 ### Code examples
 ```
