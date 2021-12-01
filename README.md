@@ -17,7 +17,7 @@ To predict whether an asteroid is hazardous or not, four supervised machine algo
 - Decision tree (DT)
 - Random Forest (RF)
 
-Prior to modeling, the data is split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction are applied. Then each algorithm is built on both the normalized and normalized+pca train data (i.e., a total of eight models), and evaluated on the normalized and normalized+pca test data, respectively. Lastly, feature importance is applied to identify the most important input features.
+Prior to modeling, the data is split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction are applied. Then each algorithm is built on both the normalized and normalized+pca train data (i.e., resulting in a total of eight models), and evaluated on the normalized and normalized+pca test data, respectively. Lastly, feature importance is performed to identify the most important input features.
 
 ## Repository Structure
 ```
