@@ -19,7 +19,7 @@ To predict whether an asteroid is hazardous or not, four supervised machine algo
 
 Prior to modeling, the data is split into a train and test set (80:20 ratio). In addition, min-max normalizion and principal component analysis (PCA) for dimensionality reduction are applied. Then each algorithm is built on both the normalized and normalized+pca train data (i.e., a total of eight models), and evaluated on the normalized and normalized+pca test data, respectively. Lastly, feature importance is applied to identify the most important input features.
 
-## Repository structure (in progress)
+## Repository Structure
 ```
 ├── data
 │   ├── raw                   <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
@@ -61,9 +61,9 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 ## Getting Started
 1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
 
-2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw) within this repo, or can be downloaded [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/processed). 
+2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw), or downloaded directly [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/processed). 
 
-4. Data analysis/visualization notebooks are being kept [here](https://github.com/keknight/DSE_511_project3/tree/main/notebooks), and data preprocessing, model training/predicting, and feature importance scripts are being kept [here](https://github.com/keknight/DSE_511_project3/tree/main/src). 
+4. Data analysis/visualization notebooks can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/notebooks), and data preprocessing, model training/predicting, and feature importance scripts can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/src). 
 
 5. Reports and figures can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/reports).
 
@@ -72,7 +72,7 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 # To install project dependencies
 pip install -r requirements.txt
 
-# The following command will perform data processing, model training and model evaluation
+# To run the entire project (i.e., data processing, model training/predicting, and feature importance)
 python main.py
 ```
 
