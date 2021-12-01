@@ -1,7 +1,7 @@
 # NASA Asteroid Classification
 
 ## Project Intro/Objective
-The purpose of this project is to predict whether an asteroid is hazardous or not.
+The purpose of this project is to predict whether an asteroid is hazardous or not using data provided by NASA.
 
 ## Methods Used
 * Data analysis and visualization
