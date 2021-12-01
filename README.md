@@ -80,9 +80,9 @@ python main.py
 
 |Name     |  Slack Handle   | 
 |---------|-----------------|
-|[Katie Knight](https://github.com/[keknight]) |     @keknight    |
-|[Anna-Maria Nau](https://github.com/[annamarianau])| @annamarianau        |
-|[Christoph Metzner](https://github.com/[cmetzner93]) |     @cmetzner93    |
+|[Katie Knight](https://github.com/keknight) |     @keknight    |
+|[Anna-Maria Nau](https://github.com/annamarianau)| @annamarianau        |
+|[Christoph Metzner](https://github.com/cmetzner93) |     @cmetzner93    |
 
 ### Acknowledgements
 
