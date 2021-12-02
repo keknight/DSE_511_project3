@@ -95,12 +95,13 @@ def main():
     clfs_names = ['NB + Scaled', 'NB + PCA', 'SVC + Scaled', 'SVC + PCA', 'DT + Scaled', 'DT + PCA', 'RF + Scaled', 'RF + PCA']
     plot_roc_curve(y_test=y_test, y_pred_probas=y_pred_probas, clfs_names=clfs_names)
 
-    #plot feature importance
+    # feature importance
+    print('Performing feature importance...')
     classifiers = ['nb', 'svc', 'rf', 'dt']
-    #plot for Scaled data
+    # plot for Scaled data
     for c in classifiers:
         feature_importance(X_test=X_test_scaled, y_test = y_test, clf_v=c, pca=False)
-    #plot for PCA data
+    # plot for PCA data
     for c in classifiers:
         feature_importance(X_test=X_test_pca, y_test = y_test, clf_v=c, pca=True)
 

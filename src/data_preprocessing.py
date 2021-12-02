@@ -75,15 +75,15 @@ def data_preprocessing():
 														 'aphelion_dist', 'perihelion_time', 'mean_anomaly',
 														 'mean_motion'])
 
-	print('Applying PCA with 95% explained variance to scaled data for feature reduction...')
+	print('Applying PCA with 95% explained variance to scaled data...')
 	pca = PCA(n_components=0.95)
 	X_train_scaled_pca = pca.fit_transform(X_train_scaled)
 	X_train_scaled_pca = pd.DataFrame(X_train_scaled_pca)
 	X_test_scaled_pca = pca.transform(X_test_scaled)
 	X_test_scaled_pca = pd.DataFrame(X_test_scaled_pca)
-	print(f'   Feature space was reduced from {X_train.shape[1]} to {X_train_scaled_pca.shape[1]}')
+	print(f'   Input feature space was reduced from {X_train.shape[1]} to {X_train_scaled_pca.shape[1]}')
 
-	print('Saving data for modeling...')
+	print('Saving processed data for modeling...')
 	# Save normalized data
 	with open("../data/processed/train_scaled.pkl", "wb") as f:
 		pkl.dump([X_train_scaled, y_train], f)
