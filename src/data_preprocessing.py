@@ -14,6 +14,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 
 
+
 def data_preprocessing():
 	'''
 	This function performs basic data preprocessing, such as changing column names, dropping features,
@@ -77,7 +78,7 @@ def data_preprocessing():
 														 'mean_motion'])
 
 	print('Applying PCA with 95% explained variance to scaled data...')
-	pca = PCA(n_components=0.95)
+	pca = PCA(n_components=0.95, svd_solver='full', random_state=0)
 	X_train_scaled_pca = pca.fit_transform(X_train_scaled)
 	X_train_scaled_pca = pd.DataFrame(X_train_scaled_pca)
 	X_test_scaled_pca = pca.transform(X_test_scaled)
