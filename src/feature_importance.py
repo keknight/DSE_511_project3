@@ -35,7 +35,6 @@ def feature_importance(
     Graphs that show the feature importance of each model plus whether the data was PCA or Scaled
     """
 
-
     # load the model
     clf = load_model(clf_v=clf_v, pca=pca)
 
@@ -52,5 +51,5 @@ def feature_importance(
     ax.boxplot(r.importances[sorted_idx].T, vert=False, labels=X_test.columns[sorted_idx])
     ax.set_title("Permutation Importance: " + str(clf_v) + ' ' + str(d))
     fig.tight_layout()
-    plt.savefig(os.path.join('..', 'models', 'permutation_figure_' + str(clf_v) + '_' + str(d) + '.png'))
+    plt.savefig(os.path.join('..', 'reports', 'figures', 'permutation_figure_' + str(clf_v) + '_' + str(d) + '.png'))
     plt.show()
