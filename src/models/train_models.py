@@ -77,7 +77,7 @@ def init_classifier(clf_v: str) -> Tuple[SklearnClassifier, Dict[str, int]]:
         ]
 
     elif clf_v == 'rf':
-        clf = RandomForestClassifier()
+        clf = RandomForestClassifier(random_state=seed)
         param_grid = [
           {'n_estimators': [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]},
           {'bootstrap': [True, False]},
