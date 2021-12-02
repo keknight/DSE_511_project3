@@ -13,5 +13,5 @@
 **/.DS_Store
 
 # data, models 
-models/
+#models/
 data/
