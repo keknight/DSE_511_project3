@@ -22,6 +22,7 @@ def data_preprocessing():
 	'''
 
 	# load data
+	print('Loading raw data...')
 	with open(os.path.join('..', 'data', 'raw', 'nasa.csv'), 'rb') as input_file:
 		data = pd.read_csv(input_file)
 	print('Shape of raw data:', data.shape)
@@ -36,11 +37,11 @@ def data_preprocessing():
 			   'est_dia_in_miles_max', 'est_dia_in_feet_min', 'est_dia_in_feet_max', 'relative_velocity_km_per_sec',
 			   'miles_per_hour', 'close_approach_date', 'epoch_date_close_approach', 'orbit_determination_date',
 			   'miss_dist._astronomical', 'miss_dist._lunar', 'miss_dist._miles'], axis=1, inplace=True)
-	print('Shape of data after dropping features:', data.shape)
+	print('Shape of data after removing features:', data.shape)
 
 	# split data randomly in train and test sets (80/20 split)
 	X_train, X_test, y_train, y_test = train_test_split(data.iloc[:, :-1], data.hazardous, test_size=0.2, random_state=0)
-	print('Splitting data into train/test set (80/20 split)...')
+	print('Splitting data into train/test set (80:20 ratio)...')
 	print(f'   X_train shape: {X_train.shape}')
 	print(f'   y_train shape: {y_train.shape}')
 	print(f'   X_test shape: {X_test.shape}')
@@ -81,7 +82,7 @@ def data_preprocessing():
 	X_train_scaled_pca = pd.DataFrame(X_train_scaled_pca)
 	X_test_scaled_pca = pca.transform(X_test_scaled)
 	X_test_scaled_pca = pd.DataFrame(X_test_scaled_pca)
-	print(f'   Input feature space was reduced from {X_train.shape[1]} to {X_train_scaled_pca.shape[1]}')
+	print(f'   Input feature space was reduced from {X_train.shape[1]} to {X_train_scaled_pca.shape[1]} principal components')
 
 	print('Saving processed data for modeling...')
 	# Save normalized data

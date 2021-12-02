@@ -17,6 +17,8 @@ def main():
     # load data
     X_train_scaled, y_train, X_test_scaled, y_test = data_loader(pca=False)
     X_train_pca, y_train, X_test_pca, y_test = data_loader(pca=True)
+    
+    print('Training models...') 
 
     # train Gaussian naive bayes classifier with scaled data
     clf_nb, clf_nb_time = train_model(X_train=X_train_scaled, y_train=y_train, clf_v='nb', cv_m=5, pca=False)
@@ -90,13 +92,14 @@ def main():
     print(rf_results_pca)
 
     # plot ROC-Curve
+    print('Plotting ROC curve and saving to reports/figures/...')
     y_pred_probas = [nb_y_pred_proba, nb_pca_y_pred_proba, svc_y_pred_proba, svc_pca_y_pred_proba, 
       dt_y_pred_proba, dt_pca_y_pred_proba, rf_y_pred_proba, rf_pca_y_pred_proba]
     clfs_names = ['NB + Scaled', 'NB + PCA', 'SVC + Scaled', 'SVC + PCA', 'DT + Scaled', 'DT + PCA', 'RF + Scaled', 'RF + PCA']
     plot_roc_curve(y_test=y_test, y_pred_probas=y_pred_probas, clfs_names=clfs_names)
 
     # feature importance
-    print('Performing feature importance...')
+    print('Performing feature importance and saving plots to reports/figures/...')
     classifiers = ['nb', 'svc', 'rf', 'dt']
     # plot for Scaled data
     for c in classifiers:
