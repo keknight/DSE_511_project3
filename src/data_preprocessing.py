@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 
-
+np.random.seed(0) 
 
 def data_preprocessing():
 	'''
