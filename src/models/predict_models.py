@@ -71,11 +71,8 @@ def predict_model(
     # Plot a confusion matrix of the results
     print("\n--- Confusion matrix for test data ---")
     conf_matrix = confusion_matrix(y_test, y_pred)
+    tn, fp, fn, tp = conf_matrix.ravel()
     print(conf_matrix)
-    tp = conf_matrix[0][0]
-    fp = conf_matrix[0][1]
-    fn = conf_matrix[1][0]
-    tn = conf_matrix[1][1]
 
     if pca:
         pca_s = 'pca_true'
