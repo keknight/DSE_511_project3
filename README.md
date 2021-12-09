@@ -59,7 +59,7 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 ## Getting Started
 1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
 
-2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw), or downloaded directly [here](https://towardsdatascience.com/nasa-asteroid-classification-6949bda3b1da). And the processed data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/processed). 
+2. Raw data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/raw), or downloaded directly [here](https://www.kaggle.com/shrutimehta/nasa-asteroids-classification). And the processed data can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/data/processed). 
 
 4. Data analysis/visualization notebooks can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/notebooks), and data preprocessing, model training/predicting, and feature importance scripts can be found [here](https://github.com/keknight/DSE_511_project3/tree/main/src). 
 
