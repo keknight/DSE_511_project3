@@ -25,9 +25,7 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 │   ├── raw                   <- The original data downloaded from https://www.kaggle.com/shrutimehta/nasa-asteroids-classification.
 │   └── processed             <- The processed data used to train and evaluate the models.
 │
-├── reports                   <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   ├── figures               <- Generated figures to be used in reporting.
-│   └── proposal.pdf          <- The project proposal.
+├── reports                   <- Generated reports and figures.
 │
 ├── notebooks                 <- Jupyter notebooks for data analysis and visualization.
 │   └── data_analysis.ipynb
