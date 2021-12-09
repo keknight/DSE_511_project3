@@ -72,7 +72,7 @@ Prior to modeling, the data is split into a train and test set (80:20 ratio). In
 # To install project dependencies
 pip install -r requirements.txt
 
-# To run the entire project (i.e., data processing, model training/predicting, and feature importance) locate into the src/ directory, and run the follwing command: 
+# To run the entire project (i.e., data processing, model training/predicting, and feature importance) locate into the src/ directory, and run the following command: 
 python main.py
 ```
 
